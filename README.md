@@ -64,11 +64,13 @@ At the bottom of our publish workflow, add a new step to download an artifact:
     uses: actions/download-artifact@v2
     with:
       name: zipped-bundle
+- 
 Add the required build dependency to our publish workflow:
 
 publish:
   runs-on: ubuntu-latest
   needs: build
+
 Add a new step to upload a build artifact as part of the release:
 
 - name: Upload release asset
