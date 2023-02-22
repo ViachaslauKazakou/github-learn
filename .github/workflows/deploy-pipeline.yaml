@@ -11,12 +11,12 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8
+          python-version: 3.9
       - name: Install libraries
         run: pip install flake8
       - name: Lint with flake8
         run: |
-            cd function
+            cd project
             flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
             flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
@@ -32,7 +32,7 @@ jobs:
           python-version: 3.9
       - name: Install libraries
         run: |
-            cd function
+            cd project
             python -m pip install --upgrade pip
             if [ -f requirements.txt ]; then pip install -r requirements.txt -t .; fi
       - name: Zip bundle
